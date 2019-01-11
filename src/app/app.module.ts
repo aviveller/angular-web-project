@@ -8,6 +8,10 @@ import { ABOUTComponent } from './about/about.component';
 import { CONTACTComponent } from './contact/contact.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbdDatepickerRange } from './datepicker-range';
 
 
 const appRoutes: Routes = [
@@ -28,6 +32,8 @@ const appRoutes: Routes = [
     ABOUTComponent,
     CONTACTComponent,
     LoginComponent,
+    NgbdDatepickerRange
+   
    
   ],
   imports: [
@@ -37,7 +43,10 @@ const appRoutes: Routes = [
     ),
     BrowserModule,
     UiModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    NgbModule,
+    FormsModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
