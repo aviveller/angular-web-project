@@ -196,9 +196,10 @@ padding-left: 150px
     width: 600px;
     position: absolute;
     display: flex;
-    justify-content:center;
+    justify-content:left;
     margin-top: 270px
 
  }
 
  
+ .form-inline { display: block;}

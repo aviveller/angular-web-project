@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {NgbDate, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
+
+  
   selector: 'ngbd-datepicker-range',
   templateUrl: './datepicker-range.html',
   styles: [`
@@ -25,7 +27,8 @@ import {NgbDate, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
   `]
 })
 export class NgbdDatepickerRange {
-
+  
+  show: boolean = false;
   hoveredDate: NgbDate;
 
   fromDate: NgbDate;
