@@ -240,10 +240,26 @@ padding-left: 150px
 
  #MainInputs{
 
-    border: 2px solid #fe380d;
+    border: 2px solid black;
 
  }
 
  .btn-outline-secondary {
-    border: 2px solid #fe380d;
+    border: 2px solid black;
  }
+
+ #inlineFormCustomSelect{
+
+    border: 2px solid black;
+ }
+
+
+ input, label {
+    display:block;
+}
+
+#InForm{
+
+display: block
+
+}
