@@ -190,16 +190,60 @@ padding-left: 150px
       }
 
   
-  #DatePicker.jumbotron{
+      #DatePicker.jumbotron{
 
-    
-    width: 600px;
-    position: absolute;
-    display: flex;
-    justify-content:left;
-    margin-top: 270px
+    width: 100%;
+    max-width: 80%;
+    max-height: 150px;
+   position: absolute;
+  margin-top: 250px;
+   left: 0;
+   right: 0;
+   margin-left: auto;
+   margin-right: auto;
+  background-color: white;
+  
+
+ }
+
+ .input-group > .form-control:not(:last-child), .input-group > .custom-select:not(:last-child){
+
+    height: 50px;
+ }
+
+ #input2{
+
+
+    margin-left: 40px;
+
+
 
  }
 
  
+ 
  .form-inline { display: block;}
+
+ .form-inline .input-group, .form-inline .custom-select{
+
+    height: 50px;
+    
+ }
+
+
+
+ #MainB{
+
+    height: 50px;
+ }
+
+
+ #MainInputs{
+
+    border: 2px solid #fe380d;
+
+ }
+
+ .btn-outline-secondary {
+    border: 2px solid #fe380d;
+ }
