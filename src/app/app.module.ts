@@ -11,7 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbdDatepickerRange } from './datepicker-range';
+import { NgbdDatepickerPopup } from './datepicker-popup';
+
 
 
 const appRoutes: Routes = [
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     ABOUTComponent,
     CONTACTComponent,
     LoginComponent,
-    NgbdDatepickerRange
+    NgbdDatepickerPopup,
+   
    
    
   ],
