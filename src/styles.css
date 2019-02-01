@@ -13,8 +13,8 @@
     max-width: 100%;
     min-width: 360px;
     width: 100%;
-    padding-right: 50px;
-    padding-left: 50px;
+    padding-right: 0px;
+    padding-left: 0px;
     margin-right: 0px;
     margin-left: 0px;
     
@@ -63,6 +63,7 @@ margin-bottom: 0em !important;
         height: 100%;
         width: 1200px;
         margin-top:  -320px;
+        min-height: 496px;
       
       }
 }

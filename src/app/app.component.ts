@@ -21,7 +21,7 @@ export class AppComponent {
 
   constructor(public auth: UserService) {
 
-    localStorage.setItem('userToken', '');
+    // localStorage.setItem('userToken', '');
     
   }
 
