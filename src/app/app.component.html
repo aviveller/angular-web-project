@@ -1,40 +1,42 @@
+<router-outlet name="aux">
+
+
+  <img id="logo" src="assets/logo2.gif">
+
+  <nav class="navbar navbar-dark bg-dark mb-5">
+
+    <a class="navbar-brand" href="/">AVIS</a>
+    <div class="navbar-expand mr-auto">
+      <div class="navbar-nav">
 
 
 
-  
-  <router-outlet name="aux">
-    
-    
-      <img id="logo" src="assets/logo2.gif">
-      
-    <nav class="navbar navbar-dark bg-dark mb-5">
 
-      <a class="navbar-brand" href="/">AVIS</a>
-      <div class="navbar-expand mr-auto">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active">Home</a>
-            <a class="nav-item nav-link" routerLink="/about" routerLinkActive="active">About</a>
-            <a class="nav-item nav-link" routerLink="/contact" routerLinkActive="active">Contact</a> 
-       
-        </div>
+        <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+        <a class="nav-item nav-link" routerLink="/about" routerLinkActive="active">About</a>
+        <a class="nav-item nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+        <!-- <a class="nav-item nav-link" *ngIf="!auth.isUserLoggedIn()" routerLink="/login" routerLinkActive="active">Login</a> -->
+        <!-- <a class="nav-item nav-link" *ngIf="auth.isUserLoggedIn()" routerLink="/logout" routerLinkActive="active">Logout</a> -->
+        <a class="nav-item nav-link" *ngIf="auth.isUserAdmin()"  routerLink="/secrets" routerLinkActive="active" >Secrets</a>
+
       </div>
-    </nav>
-  
-    
-    
-  
-      
-      
-      </router-outlet>
+    </div>
+
+    <app-login *ngIf="!auth.isUserLoggedIn()"></app-login>
+    <app-logout *ngIf="auth.isUserLoggedIn()"></app-logout>
+   
+  </nav>
+
+
+</router-outlet>
 
 
 <app-layout>
-  
-   
 
-    <router-outlet></router-outlet>
 
-    
- 
+
+  <router-outlet></router-outlet>
+
+
+
 </app-layout>
-

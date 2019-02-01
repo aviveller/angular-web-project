@@ -1,3 +1,33 @@
-<p>
-  login works!
-</p>
+<!-- <form #loginForm="ngForm" ngNativeValidate class="col s12 white" (ngSubmit)="OnSubmit(UserName.value, Password.value)">
+
+      <input type="text" #UserName ngModel name="UserName" placeholder="UserName" required >
+
+      <input type="password" #Password ngModel name="Password" placeholder="Password" required >
+
+      <button class="btn-large btn-submit" type="submit">Submit</button>
+
+</form> -->
+
+<form #loginForm="ngForm" ngNativeValidate (ngSubmit)="OnSubmit(UserName.value, Password.value)">
+
+
+    <div id="signIn" class="form-row">
+
+        <div class="col">
+            <input type="text" #UserName ngModel name="UserName" required class="form-control" id="inputUserName"
+                placeholder="UserName">
+        </div>
+
+        <div class="col">
+        <input type="password" #Password ngModel name="Password" required class="form-control" id="inputPassword"
+            placeholder="Password">
+        </div>
+
+        <div class="col">
+            <button id="loginButton" class="btn btn-secondary btn-lg" type="submit">Submit</button>
+        </div>
+    </div>
+
+
+
+</form>

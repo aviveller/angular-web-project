@@ -1,0 +1,12 @@
+
+#logoutButton{
+
+    width: 100px;
+    height: 30px;
+    margin: 0 auto;
+    padding: 0;
+    display: inline-block;
+    line-height: 0px;
+    text-align: center !important;
+
+}

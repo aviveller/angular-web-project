@@ -7,22 +7,32 @@ import { HOMEComponent } from './home/home.component';
 import { ABOUTComponent } from './about/about.component';
 import { CONTACTComponent } from './contact/contact.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { LoginComponent } from './login/login.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdDatepickerPopup } from './datepicker-popup';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { SecretsComponent } from './secrets/secrets.component';
+import { AuthGuard } from './auth.guard';
+
 
 
 
 const appRoutes: Routes = [
 
   { path: 'home', component: HOMEComponent},
-  { path: 'home/:id',component: HOMEComponent },
+  // { path: 'home/:id',component: HOMEComponent },
   { path: 'about', component: ABOUTComponent },
   { path: 'contact', component: CONTACTComponent },
+  // { path: 'login', component: LoginComponent},
+  // { path: 'logout', component: LogoutComponent},
+  { path: 'secrets', component: SecretsComponent, canActivate: [AuthGuard]},
+  { path: 'home', component: HOMEComponent, outlet: 'aux'},
+
   { path: '**', component: CONTACTComponent },
-  { path: 'home', component: HOMEComponent, outlet: 'aux'}
  
 ];
 
@@ -32,8 +42,13 @@ const appRoutes: Routes = [
     HOMEComponent,
     ABOUTComponent,
     CONTACTComponent,
-    LoginComponent,
     NgbdDatepickerPopup,
+    SignUpComponent,
+    LoginComponent,
+    LogoutComponent,
+    SecretsComponent,
+    
+  
    
    
    
@@ -47,7 +62,9 @@ const appRoutes: Routes = [
     UiModule,
     BsDatepickerModule.forRoot(),
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
    
   ],
   providers: [],
