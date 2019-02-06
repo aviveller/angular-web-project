@@ -11,20 +11,21 @@
 
 
 
-
+       
         <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active">Home</a>
         <a class="nav-item nav-link" routerLink="/about" routerLinkActive="active">About</a>
         <a class="nav-item nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
-        <!-- <a class="nav-item nav-link" *ngIf="!auth.isUserLoggedIn()" routerLink="/login" routerLinkActive="active">Login</a> -->
-        <!-- <a class="nav-item nav-link" *ngIf="auth.isUserLoggedIn()" routerLink="/logout" routerLinkActive="active">Logout</a> -->
         <a class="nav-item nav-link" *ngIf="auth.isUserAdmin()"  routerLink="/secrets" routerLinkActive="active" >Secrets</a>
 
       </div>
     </div>
 
-    <app-login *ngIf="!auth.isUserLoggedIn()"></app-login>
+    <button *ngIf="!auth.isUserLoggedIn()" >Signup</button>
+    <button *ngIf="!auth.isUserLoggedIn()" (click)="ShowLogin" >Login</button>
+    <button *ngIf="testB=10" >Signup</button>
+    <app-login *ngModel="!auth.isUserLoggedIn()"></app-login>
     <app-logout *ngIf="auth.isUserLoggedIn()"></app-logout>
-   
+  
   </nav>
 
 
