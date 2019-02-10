@@ -9,16 +9,16 @@ import { UserService } from './user.service';
 })
 
 
-let testB = 0;
+// let testB = 0;
 
 export class AppComponent {
   title = 'avis';
  
  
-  public ShowLogin(){
-    return testB = 10;
+  // public ShowLogin(){
+  //   return testB = 10;
 
-  }
+  // }
 
   public get isUserLoggedIn(): boolean {
     const isLogged = localStorage.getItem('userToken') !== '';
