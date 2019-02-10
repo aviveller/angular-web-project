@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="testdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cars">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="licensePlate" Type="int" Nullable="false" />
+          <Property Name="km" Type="int" Nullable="false" />
+          <Property Name="isProper" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="availability" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="location" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="photoNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="Catalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="costPerDay" Type="int" Nullable="false" />
+          <Property Name="costPerLate" Type="int" Nullable="false" />
+          <Property Name="year" Type="int" Nullable="false" />
+          <Property Name="gearbox" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="numberOfCars" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Coordinates" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="locationName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="DateTaken" Type="datetime" Nullable="false" />
+          <Property Name="DateEnd" Type="datetime" Nullable="false" />
+          <Property Name="DateReturn" Type="datetime" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="licensePlate" Type="int" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Birthday" Type="int" />
+          <Property Name="IdCardNumber" Type="int" />
+        </EntityType>
+        <EntityContainer Name="testdbModelStoreContainer">
+          <EntitySet Name="Cars" EntityType="Self.Cars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Catalog" EntityType="Self.Catalog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rent" EntityType="Self.Rent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="testdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="Int32" />
+          <Property Name="IdCardNumber" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="testdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Cars" EntityType="testdbModel.Cars" />
+          <EntitySet Name="Catalog" EntityType="testdbModel.Catalog" />
+          <EntitySet Name="Location" EntityType="testdbModel.Location" />
+          <EntitySet Name="Rent" EntityType="testdbModel.Rent" />
+        </EntityContainer>
+        <EntityType Name="Cars">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="manufacturer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="licensePlate" Type="Int32" Nullable="false" />
+          <Property Name="km" Type="Int32" Nullable="false" />
+          <Property Name="isProper" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="availability" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="photoNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Catalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="manufacturer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="costPerDay" Type="Int32" Nullable="false" />
+          <Property Name="costPerLate" Type="Int32" Nullable="false" />
+          <Property Name="year" Type="Int32" Nullable="false" />
+          <Property Name="gearbox" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="numberOfCars" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Coordinates" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="locationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="DateTaken" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateReturn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="licensePlate" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="testdbModelStoreContainer" CdmEntityContainer="testdbEntities">
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="testdbModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="testdbModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="IdCardNumber" ColumnName="IdCardNumber" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cars">
+            <EntityTypeMapping TypeName="testdbModel.Cars">
+              <MappingFragment StoreEntitySet="Cars">
+                <ScalarProperty Name="photoNumber" ColumnName="photoNumber" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="availability" ColumnName="availability" />
+                <ScalarProperty Name="isProper" ColumnName="isProper" />
+                <ScalarProperty Name="km" ColumnName="km" />
+                <ScalarProperty Name="licensePlate" ColumnName="licensePlate" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Catalog">
+            <EntityTypeMapping TypeName="testdbModel.Catalog">
+              <MappingFragment StoreEntitySet="Catalog">
+                <ScalarProperty Name="numberOfCars" ColumnName="numberOfCars" />
+                <ScalarProperty Name="gearbox" ColumnName="gearbox" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="costPerLate" ColumnName="costPerLate" />
+                <ScalarProperty Name="costPerDay" ColumnName="costPerDay" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Location">
+            <EntityTypeMapping TypeName="testdbModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="locationName" ColumnName="locationName" />
+                <ScalarProperty Name="Coordinates" ColumnName="Coordinates" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rent">
+            <EntityTypeMapping TypeName="testdbModel.Rent">
+              <MappingFragment StoreEntitySet="Rent">
+                <ScalarProperty Name="licensePlate" ColumnName="licensePlate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DateReturn" ColumnName="DateReturn" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="DateTaken" ColumnName="DateTaken" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="testdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="Int32" />
+    <Property Name="IdCardNumber" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="testdbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="Cars" EntityType="testdbModel.Cars" />
+    <EntitySet Name="Catalog" EntityType="testdbModel.Catalog" />
+    <EntitySet Name="Location" EntityType="testdbModel.Location" />
+    <EntitySet Name="Rent" EntityType="testdbModel.Rent" />
+  </EntityContainer>
+  <EntityType Name="Cars">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="manufacturer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="licensePlate" Type="Int32" Nullable="false" />
+    <Property Name="km" Type="Int32" Nullable="false" />
+    <Property Name="isProper" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="availability" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="photoNumber" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Catalog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="manufacturer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="costPerDay" Type="Int32" Nullable="false" />
+    <Property Name="costPerLate" Type="Int32" Nullable="false" />
+    <Property Name="year" Type="Int32" Nullable="false" />
+    <Property Name="gearbox" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="numberOfCars" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Coordinates" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="locationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Rent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="DateTaken" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateReturn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="licensePlate" Type="Int32" />
+  </EntityType>
+</Schema>

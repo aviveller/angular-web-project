@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="testdbModelStoreContainer" CdmEntityContainer="testdbEntities">
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="testdbModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="testdbModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="IdCardNumber" ColumnName="IdCardNumber" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cars">
+      <EntityTypeMapping TypeName="testdbModel.Cars">
+        <MappingFragment StoreEntitySet="Cars">
+          <ScalarProperty Name="photoNumber" ColumnName="photoNumber" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="availability" ColumnName="availability" />
+          <ScalarProperty Name="isProper" ColumnName="isProper" />
+          <ScalarProperty Name="km" ColumnName="km" />
+          <ScalarProperty Name="licensePlate" ColumnName="licensePlate" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Catalog">
+      <EntityTypeMapping TypeName="testdbModel.Catalog">
+        <MappingFragment StoreEntitySet="Catalog">
+          <ScalarProperty Name="numberOfCars" ColumnName="numberOfCars" />
+          <ScalarProperty Name="gearbox" ColumnName="gearbox" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="costPerLate" ColumnName="costPerLate" />
+          <ScalarProperty Name="costPerDay" ColumnName="costPerDay" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Location">
+      <EntityTypeMapping TypeName="testdbModel.Location">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="locationName" ColumnName="locationName" />
+          <ScalarProperty Name="Coordinates" ColumnName="Coordinates" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rent">
+      <EntityTypeMapping TypeName="testdbModel.Rent">
+        <MappingFragment StoreEntitySet="Rent">
+          <ScalarProperty Name="licensePlate" ColumnName="licensePlate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DateReturn" ColumnName="DateReturn" />
+          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+          <ScalarProperty Name="DateTaken" ColumnName="DateTaken" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

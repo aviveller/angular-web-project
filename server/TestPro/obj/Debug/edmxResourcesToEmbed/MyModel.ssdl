@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="testdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cars">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="model" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="licensePlate" Type="int" Nullable="false" />
+    <Property Name="km" Type="int" Nullable="false" />
+    <Property Name="isProper" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="availability" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="location" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="photoNumber" Type="int" />
+  </EntityType>
+  <EntityType Name="Catalog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="model" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="costPerDay" Type="int" Nullable="false" />
+    <Property Name="costPerLate" Type="int" Nullable="false" />
+    <Property Name="year" Type="int" Nullable="false" />
+    <Property Name="gearbox" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="numberOfCars" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Coordinates" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="locationName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Rent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DateTaken" Type="datetime" Nullable="false" />
+    <Property Name="DateEnd" Type="datetime" Nullable="false" />
+    <Property Name="DateReturn" Type="datetime" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="licensePlate" Type="int" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Birthday" Type="int" />
+    <Property Name="IdCardNumber" Type="int" />
+  </EntityType>
+  <EntityContainer Name="testdbModelStoreContainer">
+    <EntitySet Name="Cars" EntityType="Self.Cars" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Catalog" EntityType="Self.Catalog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rent" EntityType="Self.Rent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
