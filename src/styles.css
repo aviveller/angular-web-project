@@ -221,3 +221,9 @@ padding-left: 150px
 padding-left: 50px;
 
  }
+
+ #signup.jumbotron{
+
+    padding-left: 500px;
+    padding-right: 500px;
+ }

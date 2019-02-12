@@ -9,16 +9,17 @@ import { UserService } from './user.service';
 })
 
 
-// let testB = 0;
+
 
 export class AppComponent {
   title = 'avis';
+  public Show = true ;
  
- 
-  // public ShowLogin(){
-  //   return testB = 10;
-
-  // }
+  public ShowLogin(){
+    
+   this.Show = !this.Show;
+   return this.Show
+ }
 
   public get isUserLoggedIn(): boolean {
     const isLogged = localStorage.getItem('userToken') !== '';

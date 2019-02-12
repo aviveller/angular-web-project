@@ -19,13 +19,16 @@
 
       </div>
     </div>
-<!-- 
+
+    <!-- <button *ngIf="!auth.isUserLoggedIn()" (click)="ShowLogin()" >Login</button>
     <button *ngIf="!auth.isUserLoggedIn()" >Signup</button>
-    <button *ngIf="!auth.isUserLoggedIn()" (click)="ShowLogin" >Login</button>
-    <button *ngIf="testB=10" >Signup</button> -->
-    <app-login *ngModel="!auth.isUserLoggedIn()"></app-login>
-    <app-logout *ngIf="auth.isUserLoggedIn()"></app-logout>
-  
+    
+    <div *ngIf="ShowLogin()"><app-login ></app-login></div>
+     -->
+    
+
+    <app-login *ngIf="!auth.isUserLoggedIn()"></app-login>
+    <app-logout *ngIf="auth.isUserLoggedIn()"></app-logout> 
   </nav>
 
 
