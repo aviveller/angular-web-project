@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class UserService {
 
-  readonly rootUrl = 'http://localhost:52580';
+  readonly rootUrl = 'http://localhost:4300';
 
   constructor(private http: HttpClient) { 
 
@@ -20,10 +20,11 @@ export class UserService {
   }
 
   UserRegister(userName, password) {
-    var data = "username=" + userName + "&password=" + password + "&grant_type=password";
-    var reqHeader = new HttpHeaders({ 'Content-Type' : 'application/x-www-urlencoded'});
-  
-    return this.http.post(this.rootUrl + '/token', data, {headers: reqHeader});
+    var data = {Username: userName, Password: password, Id: 20} ;
+    var reg = "/api/Users";
+    var reqHeader = new HttpHeaders({ 'Content-Type' : 'application/json'});
+
+    return this.http.post(this.rootUrl + '/api/users',data, {headers: reqHeader});
   }
 
   getUserClaims() {

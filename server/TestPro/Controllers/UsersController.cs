@@ -81,7 +81,7 @@ namespace TestPro.Controllers
                 return BadRequest(ModelState);
             }
 
-            var candidateUser = db.Users.FirstOrDefaultAsync(x => x.Username == users.Username.ToLower());
+            var candidateUser = await db.Users.FirstOrDefaultAsync(x => x.Username.ToLower() == users.Username.ToLower());
 
             if(candidateUser != null)
             {

@@ -7,27 +7,13 @@
     <Property Name="RoleId" Type="Int32" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
-  <EntityType Name="Users">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="RoleId" Type="Int32" Nullable="false" />
-    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Birthday" Type="Int32" />
-    <Property Name="IdCardNumber" Type="Int32" />
-  </EntityType>
   <EntityContainer Name="testdbEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Roles" EntityType="Self.Roles" />
-    <EntitySet Name="Users" EntityType="Self.Users" />
     <EntitySet Name="Cars" EntityType="testdbModel.Cars" />
     <EntitySet Name="Catalog" EntityType="testdbModel.Catalog" />
     <EntitySet Name="Location" EntityType="testdbModel.Location" />
     <EntitySet Name="Rent" EntityType="testdbModel.Rent" />
+    <EntitySet Name="Users" EntityType="testdbModel.Users" />
   </EntityContainer>
   <EntityType Name="Cars">
     <Key>
@@ -75,5 +61,19 @@
     <Property Name="DateReturn" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UserId" Type="Int32" />
     <Property Name="licensePlate" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="Int32" />
+    <Property Name="IdCardNumber" Type="Int32" />
   </EntityType>
 </Schema>
