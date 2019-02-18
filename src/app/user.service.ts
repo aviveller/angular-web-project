@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, EMPTY, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { error } from 'util';
+
+import { Router } from '@angular/router'; 
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +13,7 @@ export class UserService {
 
   readonly rootUrl = 'http://localhost:4300';
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient,private router: Router) { 
 
   }
 
@@ -20,11 +25,25 @@ export class UserService {
   }
 
   UserRegister(userName, password) {
-    var data = {Username: userName, Password: password, Id: 20} ;
+    var data = {Username: userName, Password: password} ;
     var reg = "/api/Users";
     var reqHeader = new HttpHeaders({ 'Content-Type' : 'application/json'});
 
-    return this.http.post(this.rootUrl + '/api/users',data, {headers: reqHeader});
+      return this.http.post(this.rootUrl + '/api/users',data, {headers: reqHeader}) .pipe(
+        catchError( err => {
+             if (err.status == 500) {
+               console.log('error made by avi beacuse cannot register')
+              this.router.navigate(['/home']);
+                 return EMPTY;
+             } else {
+                 return throwError(err);
+             }
+        })
+    );
+
+    // return this.http.post(this.rootUrl + '/api/users',data, {headers: reqHeader}).pipe ( 
+    //   catchError((error) => {return error;let a = console.log('error for user registration')} ));
+    
   }
 
   getUserClaims() {
