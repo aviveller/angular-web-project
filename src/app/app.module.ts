@@ -7,11 +7,11 @@ import { HOMEComponent } from './home/home.component';
 import { ABOUTComponent } from './about/about.component';
 import { CONTACTComponent } from './contact/contact.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbdDatepickerPopup } from './datepicker-popup';
+import { NgbdDatepickerPopup } from './dates/datepicker-popup';
+import { NgbdDatepickerPopup2 } from './dates/datepicker-popup2';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -39,6 +39,7 @@ const appRoutes: Routes = [
     ABOUTComponent,
     CONTACTComponent,
     NgbdDatepickerPopup,
+    NgbdDatepickerPopup2,
     SignUpComponent,
     LoginComponent,
     LogoutComponent,

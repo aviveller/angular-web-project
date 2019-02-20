@@ -166,7 +166,7 @@ justify-content:center;
 
 #logo{
 
-height: 100px;
+height: 115px;
 width: auto;
 object-fit: fill;
 position: absolute;
@@ -208,6 +208,39 @@ padding-left: 150px
 
  }
 
+ 
+ #mainContain{
+
+    width: 100%;
+    max-width: 80%;
+    max-height: 150px;
+   position: absolute;
+  margin-top: 220px;
+   left: 0;
+   right: 0;
+   margin-left: auto;
+   margin-right: auto;
+  background-color: white;
+  display: flex;
+justify-content: start;
+  min-height: 156px;
+
+ }
+
+
+#mainDivs{
+margin-top: auto;
+margin-bottom: auto;
+margin-left: 0px;
+margin-right: 30px;
+
+}
+
+.MainDates{
+
+/* width: 300px */
+
+}
 
  #datePick{
 
@@ -218,7 +251,6 @@ padding-left: 150px
 
  #date1{
 
-padding-left: 50px;
 
  }
 
@@ -227,3 +259,104 @@ padding-left: 50px;
     padding-left: 500px;
     padding-right: 500px;
  }
+
+ .input-group > .form-control:not(:last-child), .input-group > .custom-select:not(:last-child){
+
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-color: black;
+    border-width: 1.5px;
+    border-right-color: black;
+    height: 48px;
+
+ }
+
+ .input-group > .input-group-append > .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child){
+border-left-color: transparent !important;
+border-color: black;
+border-width: 1.5px;
+border-top-right-radius: 0px;
+border-bottom-right-radius: 0px;
+ }
+
+ .bg-dark{
+
+    background-color: black !important;
+ }
+
+ .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus{
+
+    color: #fe3a0f
+ }
+
+
+
+
+ #mainbutton{
+    padding: 15px 20px;
+    background: rgb(0, 0, 0);
+    border:0;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: helvetica;
+    font-size: 12px;
+    letter-spacing: 3px;
+    position: relative;
+    transition:         all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+    display: block;
+    margin: 74px auto;
+  }
+  
+  #mainbutton::after,
+  #mainbutton::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+      opacity: 0;
+    transition:         all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  
+  #mainbutton::after{
+      width: 30px;
+      height: 1px;
+      background: white;
+      transform: translateX(-3px);
+      margin-top: 0px;
+  }
+  
+  #mainbutton::before{
+      content: "";
+      transform: rotate(-135deg) translateX(50%);
+      width: 11px;
+      height: 11px;
+      background: transparent;
+      border-left: 1px solid white;
+      border-bottom: 1px solid white;
+    margin-top: -1px;
+  }
+  
+  
+  #mainbutton:hover{
+    padding: 15px 60px 15px 20px;
+  }
+  
+  #mainbutton:hover::after,
+  #mainbutton:hover::before{
+    opacity: 1;
+    right: 15px;
+  }
+
+  #locationSelection{
+border-color: black;
+border-width: 1.5px;
+height: 48px;
+width: 350px;
+margin-left: 50px !important;
+
+  }
+
+  .locationSelectionText{ padding-left:50px}
+

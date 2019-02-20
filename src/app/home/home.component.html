@@ -1,11 +1,39 @@
 
 
+<div id="mainContain" class="container">
 
-<div class="jumbotron" id="DatePicker">
+    <div class="mainlocation" id="mainDivs">
+  <div class="locationSelectionText"><h3>Location</h3></div>
+      
      
-  <ngbd-datepicker-popup></ngbd-datepicker-popup>
- 
-</div> 
+      <select id="locationSelection">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>              
+      
+    </div>
+  
+    <div class="MainDates"  id="mainDivs">
+      <h3>Date Taken</h3>
+      <ngbd-datepicker-popup></ngbd-datepicker-popup>
+  
+    </div>
+  
+    <div class="MainDates"  id="mainDivs">
+  
+      <h3>Date Return</h3>
+      <ngbd-datepicker-popup2></ngbd-datepicker-popup2>
+    </div>
+
+    <div id="mainDivs">
+<button id="mainbutton">Order Now</button>
+
+
+    </div>
+  </div>
+
 
 
    
