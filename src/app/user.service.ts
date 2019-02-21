@@ -24,6 +24,10 @@ export class UserService {
     return this.http.post(this.rootUrl + '/token', data, {headers: reqHeader});
   }
 
+
+  getLocations() {return this.http.get(this.rootUrl + '/api/Locations')};
+
+
   UserRegister(userName, password) {
     var data = {Username: userName, Password: password} ;
     var reg = "/api/Users";

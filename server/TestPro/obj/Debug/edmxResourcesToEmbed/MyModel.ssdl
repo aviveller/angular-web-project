@@ -33,7 +33,7 @@
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="50" />
-    <Property Name="Coordinates" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Coordinates" Type="nvarchar(max)" />
     <Property Name="locationName" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Rent">

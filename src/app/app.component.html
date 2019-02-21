@@ -26,9 +26,13 @@
     <div *ngIf="ShowLogin()"><app-login ></app-login></div>
      -->
     
+     <div><button id="loginSignInButtons"  routerLink="/sign-up"  >SignUp</button></div>
+     <div><button id="loginSignInButtons"  routerLink="/login"  *ngIf="!auth.isUserLoggedIn()" >LogIn</button></div>
+     <app-logout *ngIf="auth.isUserLoggedIn()"></app-logout> 
 
-    <app-login *ngIf="!auth.isUserLoggedIn()"></app-login>
-    <app-logout *ngIf="auth.isUserLoggedIn()"></app-logout> 
+    <!-- <app-login *ngIf="!auth.isUserLoggedIn()"></app-login> -->
+    
+    
   </nav>
 
 

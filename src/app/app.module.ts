@@ -28,6 +28,7 @@ const appRoutes: Routes = [
   { path: 'contact', component: CONTACTComponent },
   { path: 'secrets', component: SecretsComponent, canActivate: [AuthGuard]},
   { path: 'sign-up', component: SignUpComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'home', component: HOMEComponent, outlet: 'aux'},
   { path: '**', component: CONTACTComponent },
 ];

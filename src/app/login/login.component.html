@@ -1,38 +1,38 @@
-<!-- <form #loginForm="ngForm" ngNativeValidate class="col s12 white" (ngSubmit)="OnSubmit(UserName.value, Password.value)">
-
-      <input type="text" #UserName ngModel name="UserName" placeholder="UserName" required >
-
-      <input type="password" #Password ngModel name="Password" placeholder="Password" required >
-
-      <button class="btn-large btn-submit" type="submit">Submit</button>
-
-</form> -->
-
-<form #loginForm="ngForm" ngNativeValidate (ngSubmit)="OnSubmit(UserName.value, Password.value)">
 
 
-    <div id="signIn" class="form-row">
+<div id="login" class="jumbotron">
 
-        <div class="col">
-            <input type="text" #UserName ngModel name="UserName" required class="form-control" id="inputUserName"
-                placeholder="UserName">
-        </div>
-
-        <div class="col">
-        <input type="password" #Password ngModel name="Password" required class="form-control" id="inputPassword"
-            placeholder="Password">
-        </div>
-
-        <div class="col">
-            <button id="loginSignInButtons" class="btn btn-secondary btn-lg" type="submit">LogIn</button>
-           
-        </div>
-
-   
-
-     
+    <div>
+        <h4 style="color:#F53C12">LogIn In To Your Account</h4><hr>
     </div>
-</form>
 
-<div><button id="loginSignInButtons"  routerLink="/sign-up" class="btn btn-secondary btn-lg" >SignIn</button></div>
 
+    <form #loginForm="ngForm" ngNativeValidate (ngSubmit)="OnSubmit(UserName.value, Password.value)">
+
+
+        <div id="signIn" class="form-row">
+
+            <div class="col">
+                <input type="text" #UserName ngModel name="UserName" required class="form-control" id="inputUserName"
+                    placeholder="UserName">
+            </div>
+
+            <div class="col">
+                <input type="password" #Password ngModel name="Password" required class="form-control"
+                    id="inputPassword" placeholder="Password">
+            </div>
+
+            <div class="col">
+                <button id="LoginB" class="btn btn-primary" type="submit">LogIn</button>
+
+            </div>
+
+
+
+
+        </div>
+    </form>
+
+
+
+</div>

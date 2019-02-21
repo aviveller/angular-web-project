@@ -1,4 +1,6 @@
 
+<div class="entryDiv"><h1 id="entreyText" class="tracking-in-expand">Sa-Sa Rantal Cars</h1></div>
+
 
 <div id="mainContain" class="container">
 
@@ -7,10 +9,8 @@
       
      
       <select id="locationSelection">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
+          <option *ngFor="let location of locations" value="">{{location.locationName}}</option>
+        
         </select>              
       
     </div>

@@ -38,7 +38,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="50" />
-          <Property Name="Coordinates" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Coordinates" Type="nvarchar(max)" />
           <Property Name="locationName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Rent">
@@ -96,9 +96,9 @@
           <EntitySet Name="Roles" EntityType="Self.Roles" />
           <EntitySet Name="Cars" EntityType="testdbModel.Cars" />
           <EntitySet Name="Catalog" EntityType="testdbModel.Catalog" />
-          <EntitySet Name="Location" EntityType="testdbModel.Location" />
           <EntitySet Name="Rent" EntityType="testdbModel.Rent" />
           <EntitySet Name="Users" EntityType="testdbModel.Users" />
+          <EntitySet Name="Location" EntityType="testdbModel.Location" />
         </EntityContainer>
         <EntityType Name="Cars">
           <Key>
@@ -127,15 +127,6 @@
           <Property Name="gearbox" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="numberOfCars" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="Location">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Coordinates" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="locationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Rent">
           <Key>
             <PropertyRef Name="Id" />
@@ -160,6 +151,15 @@
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Birthday" Type="Int32" />
           <Property Name="IdCardNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Coordinates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="locationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -204,16 +204,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Location">
-            <EntityTypeMapping TypeName="testdbModel.Location">
-              <MappingFragment StoreEntitySet="Location">
-                <ScalarProperty Name="locationName" ColumnName="locationName" />
-                <ScalarProperty Name="Coordinates" ColumnName="Coordinates" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Rent">
             <EntityTypeMapping TypeName="testdbModel.Rent">
               <MappingFragment StoreEntitySet="Rent">
@@ -237,6 +227,16 @@
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Location">
+            <EntityTypeMapping TypeName="testdbModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="locationName" ColumnName="locationName" />
+                <ScalarProperty Name="Coordinates" ColumnName="Coordinates" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

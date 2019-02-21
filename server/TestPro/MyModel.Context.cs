@@ -28,8 +28,8 @@ namespace TestPro
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Cars> Cars { get; set; }
         public virtual DbSet<Catalog> Catalog { get; set; }
-        public virtual DbSet<Location> Location { get; set; }
         public virtual DbSet<Rent> Rent { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Location> Location { get; set; }
     }
 }

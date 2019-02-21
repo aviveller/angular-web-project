@@ -16,7 +16,7 @@ namespace TestPro
     {
         public int Id { get; set; }
         public string Address { get; set; }
-        public Nullable<decimal> Coordinates { get; set; }
+        public string Coordinates { get; set; }
         public string locationName { get; set; }
     }
 }
