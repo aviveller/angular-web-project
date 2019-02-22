@@ -10,13 +10,13 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbdDatepickerPopup } from './dates/datepicker-popup';
-import { NgbdDatepickerPopup2 } from './dates/datepicker-popup2';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SecretsComponent } from './secrets/secrets.component';
 import { AuthGuard } from './auth.guard';
+import { DatetakenComponent } from './datetaken/datetaken.component';
+import { DatereturnComponent } from './datereturn/datereturn.component';
 
 
 
@@ -39,12 +39,12 @@ const appRoutes: Routes = [
     HOMEComponent,
     ABOUTComponent,
     CONTACTComponent,
-    NgbdDatepickerPopup,
-    NgbdDatepickerPopup2,
     SignUpComponent,
     LoginComponent,
     LogoutComponent,
     SecretsComponent,
+    DatetakenComponent,
+    DatereturnComponent
     
   
    

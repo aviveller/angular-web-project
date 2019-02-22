@@ -17,18 +17,18 @@
   
     <div class="MainDates"  id="mainDivs">
       <h3>Date Taken</h3>
-      <ngbd-datepicker-popup></ngbd-datepicker-popup>
+      <app-datereturn (Change)='GetTaken($event)'></app-datereturn>
   
     </div>
   
     <div class="MainDates"  id="mainDivs">
   
       <h3>Date Return</h3>
-      <ngbd-datepicker-popup2></ngbd-datepicker-popup2>
+      <app-datereturn (Change)='GetReturn($event)'></app-datereturn>
     </div>
 
     <div id="mainDivs">
-<button id="mainbutton">Order Now</button>
+<button (click)="test()" id="mainbutton">Order Now</button>
 
 
     </div>
