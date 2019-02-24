@@ -1,0 +1,48 @@
+<div class="container">
+    <br>
+    <br>
+    
+
+
+    <ul>
+        <li id="CarsLI" *ngFor="let item of counter">
+                <hr>
+            <div class="WrapCarResult">
+
+               
+                <div class="ImgCarResultWarper">
+                        
+                    <img id="ImgCarResult" src="/src/assets/cars/1.jpg" alt="">
+        
+                </div>
+        
+                <div class="descriptionResult">
+                    <h4>kia picanto</h4>
+        
+                    <ul>
+                        <li>best car in town</li>
+                        <li>can go up to 200 k"m</li>
+                        <li>limited bla bla bla bla</li>
+                        <li>just in case you miss it</li>
+                    </ul>
+        
+        
+                </div>
+        
+                <div>
+                <h4 s>Total Price <span style="color:green">{{TotalPrice}}</span>  NIS </h4>
+                Price Per Day <span style="color:green; font-weight: bold" > {{DayPrice}}</span> NIS 
+                </div>
+
+                <div><button type="button" class="btn btn-success">Rant Now</button></div>
+        
+        
+        
+            </div></li>
+
+    </ul>
+
+
+   
+
+</div>

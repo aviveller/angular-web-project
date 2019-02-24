@@ -14,6 +14,12 @@ namespace TestPro
     
     public partial class Catalog
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Catalog()
+        {
+            this.Cars = new HashSet<Cars>();
+        }
+    
         public int Id { get; set; }
         public string manufacturer { get; set; }
         public string model { get; set; }
@@ -22,5 +28,8 @@ namespace TestPro
         public int year { get; set; }
         public string gearbox { get; set; }
         public int numberOfCars { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cars> Cars { get; set; }
     }
 }

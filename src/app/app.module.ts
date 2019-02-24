@@ -15,8 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SecretsComponent } from './secrets/secrets.component';
 import { AuthGuard } from './auth.guard';
-import { DatetakenComponent } from './datetaken/datetaken.component';
-import { DatereturnComponent } from './datereturn/datereturn.component';
+import { DatereturnComponent } from './Dates/datereturn.component';
+import { CarsComponent } from './cars/cars.component';
 
 
 
@@ -29,8 +29,9 @@ const appRoutes: Routes = [
   { path: 'secrets', component: SecretsComponent, canActivate: [AuthGuard]},
   { path: 'sign-up', component: SignUpComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'cars', component: CarsComponent },
   { path: 'home', component: HOMEComponent, outlet: 'aux'},
-  { path: '**', component: CONTACTComponent },
+  { path: '**', component: HOMEComponent },
 ];
 
 @NgModule({
@@ -43,8 +44,8 @@ const appRoutes: Routes = [
     LoginComponent,
     LogoutComponent,
     SecretsComponent,
-    DatetakenComponent,
-    DatereturnComponent
+    DatereturnComponent,
+    CarsComponent
     
   
    

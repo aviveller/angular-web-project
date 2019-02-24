@@ -18,5 +18,7 @@ namespace TestPro
         public string Address { get; set; }
         public string Coordinates { get; set; }
         public string locationName { get; set; }
+    
+        public virtual Cars Cars { get; set; }
     }
 }

@@ -450,4 +450,3 @@ C:\לימודים\projects\angular-web-project\server\TestPro\obj\Debug\TestPro.
 C:\לימודים\projects\angular-web-project\server\TestPro\obj\Debug\TestPro.csproj.CopyComplete
 C:\לימודים\projects\angular-web-project\server\TestPro\obj\Debug\TestPro.dll
 C:\לימודים\projects\angular-web-project\server\TestPro\obj\Debug\TestPro.pdb
-C:\לימודים\projects\angular-web-project\server\TestPro\obj\Debug\TestPro.csprojAssemblyReference.cache

@@ -444,3 +444,24 @@ margin-top: 80px;
     opacity: 1;
   }
 }
+.WrapCarResult{
+position: relative;
+height: 230px;
+display: flex;
+justify-content:space-between;
+width: 90%;
+
+}
+
+#ImgCarResult{
+margin-top: auto;
+margin-bottom: auto;
+height: 80%;
+}
+
+
+
+#CarsLI{
+
+  list-style-type: none;
+}

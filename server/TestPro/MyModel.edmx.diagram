@@ -5,13 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c3b63e6e16334f23adfda9c51149d436" Name="Diagram1">
-        <EntityTypeShape EntityType="testdbModel.Roles" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="testdbModel.Cars" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="testdbModel.Catalog" Width="1.5" PointX="2.75" PointY="4.75" />
-        <EntityTypeShape EntityType="testdbModel.Rent" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="testdbModel.Users" Width="1.5" PointX="3.25" PointY="0.75" />
-        <EntityTypeShape EntityType="testdbModel.Location" Width="1.5" PointX="5.375" PointY="3.75" />
-      </Diagram>
+        <EntityTypeShape EntityType="testdbModel.Location" Width="1.5" PointX="3" PointY="5.5" />
+        <EntityTypeShape EntityType="testdbModel.Rant" Width="1.5" PointX="0.75" PointY="3.25" />
+        <EntityTypeShape EntityType="testdbModel.Cars" Width="1.5" PointX="6" PointY="2.875" />
+        <EntityTypeShape EntityType="testdbModel.Catalog" Width="1.5" PointX="3.75" PointY="9.125" />
+        <EntityTypeShape EntityType="testdbModel.Roles" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="testdbModel.Users" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="testdbModel.FK_Cars_ToTable" />
+        <AssociationConnector Association="testdbModel.FK_Cars_ToTable_1" />
+        <AssociationConnector Association="testdbModel.FK_Location_ToTable" />
+        <AssociationConnector Association="testdbModel.FK_Users_ToTable" />
+        <AssociationConnector Association="testdbModel.FK_Users_ToTable_1" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

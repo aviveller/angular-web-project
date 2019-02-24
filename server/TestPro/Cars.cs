@@ -21,7 +21,11 @@ namespace TestPro
         public int km { get; set; }
         public string isProper { get; set; }
         public string availability { get; set; }
-        public string location { get; set; }
+        public int location { get; set; }
         public Nullable<int> photoNumber { get; set; }
+    
+        public virtual Rant Rant { get; set; }
+        public virtual Catalog Catalog { get; set; }
+        public virtual Location Location1 { get; set; }
     }
 }

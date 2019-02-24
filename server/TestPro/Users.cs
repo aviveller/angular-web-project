@@ -23,5 +23,8 @@ namespace TestPro
         public string LastName { get; set; }
         public Nullable<int> Birthday { get; set; }
         public Nullable<int> IdCardNumber { get; set; }
+    
+        public virtual Rant Rant { get; set; }
+        public virtual Roles Roles { get; set; }
     }
 }
