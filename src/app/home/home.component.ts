@@ -22,13 +22,23 @@ export class HOMEComponent implements OnInit {
   //this function cuclate the difrence between two dates
 
   ConvertToNativeDate() {
-    let converter: NgbDateNativeAdapter = new NgbDateNativeAdapter;
-    let TakenConverted = converter.toModel(this.Taken);
-    let ReturnConverted = converter.toModel(this.Return);
 
-    var diff = Math.abs(TakenConverted.getTime() - ReturnConverted.getTime());
-    var diffDays = Math.ceil(diff / (1000 * 3600 * 24));
-    console.log(diffDays)
+    console.log(this.Taken, this.Return)
+
+    let TakenTime: NgbDate = new NgbDate(this.Taken.year, this.Taken.month, this.Taken.day);
+    let ReturnTime: NgbDate = new NgbDate(this.Return.year, this.Return.month, this.Return.day);
+
+    if (ReturnTime.after(TakenTime)){
+      let converter: NgbDateNativeAdapter = new NgbDateNativeAdapter;
+      let TakenConverted = converter.toModel(this.Taken);
+      let ReturnConverted = converter.toModel(this.Return);
+  
+      var diff = Math.abs(TakenConverted.getTime() - ReturnConverted.getTime());
+      var diffDays = Math.ceil(diff / (1000 * 3600 * 24));
+      console.log(diffDays)
+      
+    } else {console.log("dates are not ok, return must be after taken")}
+ 
 
   }
 
@@ -46,17 +56,7 @@ export class HOMEComponent implements OnInit {
 
 
 
-  test() {
-    console.log(this.Taken, this.Return)
-
-    let TakenTime: NgbDate = new NgbDate(this.Taken.year, this.Taken.month, this.Taken.day);
-    let ReturnTime: NgbDate = new NgbDate(this.Return.year, this.Return.month, this.Return.day);
-
-    console.log(ReturnTime.after(TakenTime));
-    console.log(ReturnTime.month - TakenTime.month);
-  }
-
-
+ 
 
   constructor(private userService: UserService, private router: Router) { }
 

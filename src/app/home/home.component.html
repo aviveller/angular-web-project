@@ -9,7 +9,7 @@
       
      
       <select id="locationSelection">
-          <option *ngFor="let location of locations" value="">{{location.locationName}}</option>
+          <option *ngFor="let location of locations" value="" required >{{location.locationName}}</option>
         
         </select>              
       
@@ -25,6 +25,8 @@
   
       <h3>Date Return</h3>
       <app-datereturn (Change)='GetReturn($event)'></app-datereturn>
+      <div *ngIf="expression"> <p id="errorMes" style="color:red">Type Error</p></div>
+     
     </div>
 
     <div id="mainDivs">

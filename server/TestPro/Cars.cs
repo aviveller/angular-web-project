@@ -14,6 +14,12 @@ namespace TestPro
     
     public partial class Cars
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Cars()
+        {
+            this.Rent = new HashSet<Rent>();
+        }
+    
         public int Id { get; set; }
         public string manufacturer { get; set; }
         public string model { get; set; }
@@ -24,8 +30,9 @@ namespace TestPro
         public int location { get; set; }
         public Nullable<int> photoNumber { get; set; }
     
-        public virtual Rant Rant { get; set; }
-        public virtual Catalog Catalog { get; set; }
         public virtual Location Location1 { get; set; }
+        public virtual Catalog Catalog { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rent> Rent { get; set; }
     }
 }

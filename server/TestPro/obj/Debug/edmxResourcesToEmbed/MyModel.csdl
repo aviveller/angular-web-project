@@ -1,72 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="testdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="testdbEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Location" EntityType="testdbModel.Location" />
-    <EntitySet Name="Rant" EntityType="testdbModel.Rant" />
     <EntitySet Name="Cars" EntityType="testdbModel.Cars" />
     <EntitySet Name="Catalog" EntityType="testdbModel.Catalog" />
+    <EntitySet Name="Location" EntityType="testdbModel.Location" />
+    <EntitySet Name="Rent" EntityType="testdbModel.Rent" />
     <EntitySet Name="Roles" EntityType="testdbModel.Roles" />
     <EntitySet Name="Users" EntityType="testdbModel.Users" />
-    <AssociationSet Name="FK_Cars_ToTable" Association="testdbModel.FK_Cars_ToTable">
-      <End Role="Rant" EntitySet="Rant" />
-      <End Role="Cars" EntitySet="Cars" />
-    </AssociationSet>
     <AssociationSet Name="FK_Cars_ToTable_1" Association="testdbModel.FK_Cars_ToTable_1">
-      <End Role="Catalog" EntitySet="Catalog" />
+      <End Role="Location" EntitySet="Location" />
       <End Role="Cars" EntitySet="Cars" />
     </AssociationSet>
-    <AssociationSet Name="FK_Location_ToTable" Association="testdbModel.FK_Location_ToTable">
+    <AssociationSet Name="FK_Catalog_ToTable" Association="testdbModel.FK_Catalog_ToTable">
       <End Role="Cars" EntitySet="Cars" />
+      <End Role="Catalog" EntitySet="Catalog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rent_ToTable_2" Association="testdbModel.FK_Rent_ToTable_2">
+      <End Role="Cars" EntitySet="Cars" />
+      <End Role="Rent" EntitySet="Rent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rent_ToTable_1" Association="testdbModel.FK_Rent_ToTable_1">
       <End Role="Location" EntitySet="Location" />
+      <End Role="Rent" EntitySet="Rent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rent_ToTable" Association="testdbModel.FK_Rent_ToTable">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Rent" EntitySet="Rent" />
     </AssociationSet>
     <AssociationSet Name="FK_Users_ToTable" Association="testdbModel.FK_Users_ToTable">
-      <End Role="Rant" EntitySet="Rant" />
-      <End Role="Users" EntitySet="Users" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Users_ToTable_1" Association="testdbModel.FK_Users_ToTable_1">
       <End Role="Roles" EntitySet="Roles" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Location">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Coordinates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="locationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Cars" Relationship="testdbModel.FK_Location_ToTable" FromRole="Location" ToRole="Cars" />
-  </EntityType>
-  <EntityType Name="Rant">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="DateTaken" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="DateReturn" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="UserId" Type="Int32" />
-    <Property Name="licensePlate" Type="Int32" />
-    <NavigationProperty Name="Cars" Relationship="testdbModel.FK_Cars_ToTable" FromRole="Rant" ToRole="Cars" />
-    <NavigationProperty Name="Users" Relationship="testdbModel.FK_Users_ToTable" FromRole="Rant" ToRole="Users" />
-  </EntityType>
   <EntityType Name="Cars">
     <Key>
-      <PropertyRef Name="location" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="manufacturer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="licensePlate" Type="Int32" Nullable="false" />
     <Property Name="km" Type="Int32" Nullable="false" />
     <Property Name="isProper" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="availability" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="availability" Type="String" Nullable="false" />
     <Property Name="location" Type="Int32" Nullable="false" />
     <Property Name="photoNumber" Type="Int32" />
-    <NavigationProperty Name="Rant" Relationship="testdbModel.FK_Cars_ToTable" FromRole="Cars" ToRole="Rant" />
-    <NavigationProperty Name="Catalog" Relationship="testdbModel.FK_Cars_ToTable_1" FromRole="Cars" ToRole="Catalog" />
-    <NavigationProperty Name="Location1" Relationship="testdbModel.FK_Location_ToTable" FromRole="Cars" ToRole="Location" />
+    <NavigationProperty Name="Location1" Relationship="testdbModel.FK_Cars_ToTable_1" FromRole="Cars" ToRole="Location" />
+    <NavigationProperty Name="Catalog" Relationship="testdbModel.FK_Catalog_ToTable" FromRole="Cars" ToRole="Catalog" />
+    <NavigationProperty Name="Rent" Relationship="testdbModel.FK_Rent_ToTable_2" FromRole="Cars" ToRole="Rent" />
   </EntityType>
   <EntityType Name="Catalog">
     <Key>
@@ -80,7 +61,34 @@
     <Property Name="year" Type="Int32" Nullable="false" />
     <Property Name="gearbox" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="numberOfCars" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Cars" Relationship="testdbModel.FK_Cars_ToTable_1" FromRole="Catalog" ToRole="Cars" />
+    <NavigationProperty Name="Cars" Relationship="testdbModel.FK_Catalog_ToTable" FromRole="Catalog" ToRole="Cars" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Coordinates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="locationName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cars" Relationship="testdbModel.FK_Cars_ToTable_1" FromRole="Location" ToRole="Cars" />
+    <NavigationProperty Name="Rent" Relationship="testdbModel.FK_Rent_ToTable_1" FromRole="Location" ToRole="Rent" />
+  </EntityType>
+  <EntityType Name="Rent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="DateTaken" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateReturn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="licensePlate" Type="Int32" />
+    <Property Name="location" Type="Int32" Nullable="false" />
+    <Property Name="carid" Type="Int32" />
+    <NavigationProperty Name="Cars" Relationship="testdbModel.FK_Rent_ToTable_2" FromRole="Rent" ToRole="Cars" />
+    <NavigationProperty Name="Location1" Relationship="testdbModel.FK_Rent_ToTable_1" FromRole="Rent" ToRole="Location" />
+    <NavigationProperty Name="Users" Relationship="testdbModel.FK_Rent_ToTable" FromRole="Rent" ToRole="Users" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -88,7 +96,7 @@
     </Key>
     <Property Name="RoleId" Type="Int32" Nullable="false" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Users" Relationship="testdbModel.FK_Users_ToTable_1" FromRole="Roles" ToRole="Users" />
+    <NavigationProperty Name="Users" Relationship="testdbModel.FK_Users_ToTable" FromRole="Roles" ToRole="Users" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -103,58 +111,70 @@
     <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Birthday" Type="Int32" />
     <Property Name="IdCardNumber" Type="Int32" />
-    <NavigationProperty Name="Rant" Relationship="testdbModel.FK_Users_ToTable" FromRole="Users" ToRole="Rant" />
-    <NavigationProperty Name="Roles" Relationship="testdbModel.FK_Users_ToTable_1" FromRole="Users" ToRole="Roles" />
+    <NavigationProperty Name="Rent" Relationship="testdbModel.FK_Rent_ToTable" FromRole="Users" ToRole="Rent" />
+    <NavigationProperty Name="Roles" Relationship="testdbModel.FK_Users_ToTable" FromRole="Users" ToRole="Roles" />
   </EntityType>
-  <Association Name="FK_Cars_ToTable">
-    <End Type="testdbModel.Rant" Role="Rant" Multiplicity="1" />
-    <End Type="testdbModel.Cars" Role="Cars" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Rant">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cars">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Cars_ToTable_1">
-    <End Type="testdbModel.Catalog" Role="Catalog" Multiplicity="1" />
+    <End Type="testdbModel.Location" Role="Location" Multiplicity="1" />
     <End Type="testdbModel.Cars" Role="Cars" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Catalog">
+      <Principal Role="Location">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Cars">
-        <PropertyRef Name="Id" />
+        <PropertyRef Name="location" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Location_ToTable">
+  <Association Name="FK_Catalog_ToTable">
     <End Type="testdbModel.Cars" Role="Cars" Multiplicity="1" />
-    <End Type="testdbModel.Location" Role="Location" Multiplicity="0..1" />
+    <End Type="testdbModel.Catalog" Role="Catalog" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Cars">
-        <PropertyRef Name="location" />
-      </Principal>
-      <Dependent Role="Location">
         <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Catalog">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rent_ToTable_2">
+    <End Type="testdbModel.Cars" Role="Cars" Multiplicity="0..1" />
+    <End Type="testdbModel.Rent" Role="Rent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cars">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rent">
+        <PropertyRef Name="carid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rent_ToTable_1">
+    <End Type="testdbModel.Location" Role="Location" Multiplicity="1" />
+    <End Type="testdbModel.Rent" Role="Rent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rent">
+        <PropertyRef Name="location" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rent_ToTable">
+    <End Type="testdbModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="testdbModel.Rent" Role="Rent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rent">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Users_ToTable">
-    <End Type="testdbModel.Rant" Role="Rant" Multiplicity="1" />
-    <End Type="testdbModel.Users" Role="Users" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Rant">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Users">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Users_ToTable_1">
     <End Type="testdbModel.Roles" Role="Roles" Multiplicity="0..1" />
     <End Type="testdbModel.Users" Role="Users" Multiplicity="*" />
     <ReferentialConstraint>
