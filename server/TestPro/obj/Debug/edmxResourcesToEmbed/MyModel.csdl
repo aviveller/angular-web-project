@@ -42,7 +42,7 @@
     <Property Name="licensePlate" Type="Int32" Nullable="false" />
     <Property Name="km" Type="Int32" Nullable="false" />
     <Property Name="isProper" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="availability" Type="String" Nullable="false" />
+    <Property Name="availability" Type="Boolean" Nullable="false" />
     <Property Name="location" Type="Int32" Nullable="false" />
     <Property Name="photoNumber" Type="Int32" />
     <NavigationProperty Name="Location1" Relationship="testdbModel.FK_Cars_ToTable_1" FromRole="Cars" ToRole="Location" />
