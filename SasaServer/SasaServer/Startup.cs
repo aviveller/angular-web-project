@@ -12,10 +12,11 @@ namespace TestPro
 {
     public class Startup
     {
+
         public void Configuration(IAppBuilder app)
         {
             app.UseCors(CorsOptions.AllowAll);
-
+      
             OAuthAuthorizationServerOptions options = new OAuthAuthorizationServerOptions
             {
                 TokenEndpointPath = new PathString("/token"),
@@ -27,5 +28,6 @@ namespace TestPro
             app.UseOAuthAuthorizationServer(options);
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
         }
-    }
+
+  }
 }

@@ -75,4 +75,14 @@ C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\Microso
 C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\obj\Debug\SasaServer.csproj.CopyComplete
 C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\obj\Debug\SasaServer.dll
 C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\obj\Debug\SasaServer.pdb
+C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\System.Web.Http.Cors.dll
+C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\System.Web.Http.Cors.xml
 C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\obj\Debug\SasaServer.csprojAssemblyReference.cache
+C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\Microsoft.AspNet.Identity.Core.dll
+C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\Microsoft.Owin.Security.Cookies.dll
+C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\Microsoft.AspNet.Identity.Core.xml
+C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\Microsoft.Owin.Security.Cookies.xml
