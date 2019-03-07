@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-cars',
@@ -13,11 +14,21 @@ export class CarsComponent implements OnInit {
   RantDays = 12;
   DayPrice = 230;
   TotalPrice = this.DayPrice * this.RantDays
+  CarsToShow: any;
 
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
+  
   ngOnInit() {
+
+    this.userService.getCars().subscribe((data2: any) => {
+      this.CarsToShow = data2;
+      console.log(data2);
+      console.log(this.CarsToShow.id);
+    });
+  }
+    
   }
 
 }
