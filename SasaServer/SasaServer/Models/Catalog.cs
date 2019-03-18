@@ -19,10 +19,11 @@ namespace SasaServer.Models
         public string model { get; set; }
         public int costPerDay { get; set; }
         public int costPerLate { get; set; }
-        public int year { get; set; }
         public string gearbox { get; set; }
-        public int numberOfCars { get; set; }
+        public int PhotoNumber { get; set; }
+        public string availability { get; set; }
     
         public virtual Cars Cars { get; set; }
+        public virtual Cars Cars1 { get; set; }
     }
 }

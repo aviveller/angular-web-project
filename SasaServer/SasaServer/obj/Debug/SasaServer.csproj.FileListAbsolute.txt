@@ -77,7 +77,6 @@ C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\obj\Debug\S
 C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\obj\Debug\SasaServer.pdb
 C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\System.Web.Http.Cors.dll
 C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\System.Web.Http.Cors.xml
-C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\obj\Debug\SasaServer.csprojAssemblyReference.cache
 C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\Microsoft.AspNet.Identity.Core.dll
 C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\Microsoft.AspNet.Identity.Owin.dll
 C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\Microsoft.Owin.Host.SystemWeb.dll

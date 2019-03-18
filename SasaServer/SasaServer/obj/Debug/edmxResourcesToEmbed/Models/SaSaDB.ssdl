@@ -4,28 +4,25 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="model" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="licensePlate" Type="int" Nullable="false" />
     <Property Name="km" Type="int" Nullable="false" />
-    <Property Name="isProper" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="isProper" Type="bit" Nullable="false" />
     <Property Name="availability" Type="bit" Nullable="false" />
     <Property Name="location" Type="int" Nullable="false" />
-    <Property Name="photoNumber" Type="int" />
   </EntityType>
   <EntityType Name="Catalog">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="model" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="costPerDay" Type="int" Nullable="false" />
     <Property Name="costPerLate" Type="int" Nullable="false" />
-    <Property Name="year" Type="int" Nullable="false" />
     <Property Name="gearbox" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="numberOfCars" Type="int" Nullable="false" />
+    <Property Name="PhotoNumber" Type="int" Nullable="false" />
+    <Property Name="availability" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Location">
     <Key>
@@ -40,7 +37,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DateTaken" Type="datetime" Nullable="false" />
     <Property Name="DateEnd" Type="datetime" Nullable="false" />
     <Property Name="DateReturn" Type="datetime" Nullable="false" />
@@ -70,6 +67,18 @@
     <Property Name="Birthday" Type="int" />
     <Property Name="IdCardNumber" Type="int" />
   </EntityType>
+  <Association Name="FK_Cars_ToTable">
+    <End Role="Catalog" Type="Self.Catalog" Multiplicity="1" />
+    <End Role="Cars" Type="Self.Cars" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Catalog">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cars">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Cars_ToTable_1">
     <End Role="Location" Type="Self.Location" Multiplicity="1" />
     <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
@@ -149,6 +158,10 @@
     <EntitySet Name="Rent" EntityType="Self.Rent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Cars_ToTable" Association="Self.FK_Cars_ToTable">
+      <End Role="Catalog" EntitySet="Catalog" />
+      <End Role="Cars" EntitySet="Cars" />
+    </AssociationSet>
     <AssociationSet Name="FK_Cars_ToTable_1" Association="Self.FK_Cars_ToTable_1">
       <End Role="Location" EntitySet="Location" />
       <End Role="Cars" EntitySet="Cars" />

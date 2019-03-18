@@ -21,17 +21,15 @@ namespace SasaServer.Models
         }
     
         public int Id { get; set; }
-        public string manufacturer { get; set; }
-        public string model { get; set; }
         public int licensePlate { get; set; }
         public int km { get; set; }
-        public string isProper { get; set; }
+        public bool isProper { get; set; }
         public bool availability { get; set; }
         public int location { get; set; }
-        public Nullable<int> photoNumber { get; set; }
     
-        public virtual Location Location1 { get; set; }
         public virtual Catalog Catalog { get; set; }
+        public virtual Location Location1 { get; set; }
+        public virtual Catalog Catalog1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rent> Rent { get; set; }
     }

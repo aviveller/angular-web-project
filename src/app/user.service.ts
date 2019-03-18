@@ -64,6 +64,12 @@ export class UserService {
   }
 
   
+
+  getCatalogByid(id:number) {
+    return this.http.get(this.rootUrl + '/api/Catalog/' + id, { headers: new HttpHeaders({
+      'Authorization' : 'Bearer ' + localStorage.getItem('userToken')
+    })});
+  }
   
 
 

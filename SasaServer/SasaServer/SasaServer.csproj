@@ -138,6 +138,7 @@
     <Compile Include="ApplicationOAuthProvider.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CarsController.cs" />
+    <Compile Include="Controllers\CatalogsController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\RentsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />

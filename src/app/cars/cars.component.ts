@@ -14,7 +14,14 @@ export class CarsComponent implements OnInit {
   RantDays = 12;
   DayPrice = 230;
   TotalPrice = this.DayPrice * this.RantDays
+
+
+  
+  
+
   CarsToShow: any;
+  catalog: any;
+  CarId = this.CarsToShow.id
 
 
   constructor(private userService: UserService) { }
@@ -22,13 +29,13 @@ export class CarsComponent implements OnInit {
   
   ngOnInit() {
 
-    this.userService.getCars().subscribe((data2: any) => {
-      this.CarsToShow = data2;
-      console.log(data2);
-      console.log(this.CarsToShow.id);
+  
+    this.userService.getCatalogByid(this.CarId).subscribe((data3: any) => {
+      this.catalog = data3;
+      console.log(this.catalog);
     });
   }
     
   }
 
-}
+

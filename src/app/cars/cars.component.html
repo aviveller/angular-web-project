@@ -5,19 +5,20 @@
 
 
     <ul>
-        <li id="CarsLI" *ngFor="let item of counter">
+        <li id="CarsLI" *ngFor="let car of CarsToShow">
                 <hr>
             <div class="WrapCarResult">
 
+             <div>{{car.Price}}</div>   
                
                 <div class="ImgCarResultWarper">
                         
-                    <img id="ImgCarResult" src="/src/assets/cars/1.jpg" alt="">
+                    <img id="ImgCarResult" src='/src/assets/cars/{{car.photoNumber}}.png' alt="">
         
                 </div>
         
                 <div class="descriptionResult">
-                    <h4>kia picanto</h4>
+                    <h4>{{car.manufacturer}} {{car.model}}</h4>
         
                     <ul>
                         <li>best car in town</li>

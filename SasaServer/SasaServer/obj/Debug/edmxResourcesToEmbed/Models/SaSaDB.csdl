@@ -1,52 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SaSaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SaSaDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cars" EntityType="SaSaDBModel.Cars" />
+    <EntitySet Name="Catalog" EntityType="SaSaDBModel.Catalog" />
+    <EntitySet Name="Location" EntityType="SaSaDBModel.Location" />
+    <EntitySet Name="Rent" EntityType="SaSaDBModel.Rent" />
+    <EntitySet Name="Roles" EntityType="SaSaDBModel.Roles" />
+    <EntitySet Name="Users" EntityType="SaSaDBModel.Users" />
+    <AssociationSet Name="FK_Cars_ToTable" Association="SaSaDBModel.FK_Cars_ToTable">
+      <End Role="Catalog" EntitySet="Catalog" />
+      <End Role="Cars" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cars_ToTable_1" Association="SaSaDBModel.FK_Cars_ToTable_1">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Cars" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Catalog_ToTable" Association="SaSaDBModel.FK_Catalog_ToTable">
+      <End Role="Cars" EntitySet="Cars" />
+      <End Role="Catalog" EntitySet="Catalog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rent_ToTable_2" Association="SaSaDBModel.FK_Rent_ToTable_2">
+      <End Role="Cars" EntitySet="Cars" />
+      <End Role="Rent" EntitySet="Rent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rent_ToTable_1" Association="SaSaDBModel.FK_Rent_ToTable_1">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Rent" EntitySet="Rent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rent_ToTable" Association="SaSaDBModel.FK_Rent_ToTable">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Rent" EntitySet="Rent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ToTable" Association="SaSaDBModel.FK_Users_ToTable">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="Cars">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="licensePlate" Type="Int32" Nullable="false" />
     <Property Name="km" Type="Int32" Nullable="false" />
-    <Property Name="isProper" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="isProper" Type="Boolean" Nullable="false" />
     <Property Name="availability" Type="Boolean" Nullable="false" />
     <Property Name="location" Type="Int32" Nullable="false" />
-    <Property Name="photoNumber" Type="Int32" />
-    <NavigationProperty Name="Location1" Relationship="Self.FK_Cars_ToTable_1" FromRole="Cars" ToRole="Location" />
-    <NavigationProperty Name="Catalog" Relationship="Self.FK_Catalog_ToTable" FromRole="Cars" ToRole="Catalog" />
-    <NavigationProperty Name="Rent" Relationship="Self.FK_Rent_ToTable_2" FromRole="Cars" ToRole="Rent" />
+    <NavigationProperty Name="Catalog" Relationship="SaSaDBModel.FK_Cars_ToTable" FromRole="Cars" ToRole="Catalog" />
+    <NavigationProperty Name="Location1" Relationship="SaSaDBModel.FK_Cars_ToTable_1" FromRole="Cars" ToRole="Location" />
+    <NavigationProperty Name="Catalog1" Relationship="SaSaDBModel.FK_Catalog_ToTable" FromRole="Cars" ToRole="Catalog" />
+    <NavigationProperty Name="Rent" Relationship="SaSaDBModel.FK_Rent_ToTable_2" FromRole="Cars" ToRole="Rent" />
   </EntityType>
   <EntityType Name="Catalog">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="manufacturer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="costPerDay" Type="Int32" Nullable="false" />
     <Property Name="costPerLate" Type="Int32" Nullable="false" />
-    <Property Name="year" Type="Int32" Nullable="false" />
-    <Property Name="gearbox" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="numberOfCars" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Cars" Relationship="Self.FK_Catalog_ToTable" FromRole="Catalog" ToRole="Cars" />
+    <Property Name="gearbox" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoNumber" Type="Int32" Nullable="false" />
+    <Property Name="availability" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Cars" Relationship="SaSaDBModel.FK_Cars_ToTable" FromRole="Catalog" ToRole="Cars" />
+    <NavigationProperty Name="Cars1" Relationship="SaSaDBModel.FK_Catalog_ToTable" FromRole="Catalog" ToRole="Cars" />
   </EntityType>
   <EntityType Name="Location">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Coordinates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="locationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_ToTable_1" FromRole="Location" ToRole="Cars" />
-    <NavigationProperty Name="Rent" Relationship="Self.FK_Rent_ToTable_1" FromRole="Location" ToRole="Rent" />
+    <Property Name="locationName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cars" Relationship="SaSaDBModel.FK_Cars_ToTable_1" FromRole="Location" ToRole="Cars" />
+    <NavigationProperty Name="Rent" Relationship="SaSaDBModel.FK_Rent_ToTable_1" FromRole="Location" ToRole="Rent" />
   </EntityType>
   <EntityType Name="Rent">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="DateTaken" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="DateReturn" Type="DateTime" Nullable="false" Precision="3" />
@@ -54,37 +89,49 @@
     <Property Name="licensePlate" Type="Int32" />
     <Property Name="location" Type="Int32" Nullable="false" />
     <Property Name="carid" Type="Int32" />
-    <NavigationProperty Name="Cars" Relationship="Self.FK_Rent_ToTable_2" FromRole="Rent" ToRole="Cars" />
-    <NavigationProperty Name="Location1" Relationship="Self.FK_Rent_ToTable_1" FromRole="Rent" ToRole="Location" />
-    <NavigationProperty Name="Users" Relationship="Self.FK_Rent_ToTable" FromRole="Rent" ToRole="Users" />
+    <NavigationProperty Name="Cars" Relationship="SaSaDBModel.FK_Rent_ToTable_2" FromRole="Rent" ToRole="Cars" />
+    <NavigationProperty Name="Location1" Relationship="SaSaDBModel.FK_Rent_ToTable_1" FromRole="Rent" ToRole="Location" />
+    <NavigationProperty Name="Users" Relationship="SaSaDBModel.FK_Rent_ToTable" FromRole="Rent" ToRole="Users" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
       <PropertyRef Name="RoleId" />
     </Key>
     <Property Name="RoleId" Type="Int32" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Users" Relationship="Self.FK_Users_ToTable" FromRole="Roles" ToRole="Users" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="SaSaDBModel.FK_Users_ToTable" FromRole="Roles" ToRole="Users" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="RoleId" Type="Int32" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Birthday" Type="Int32" />
     <Property Name="IdCardNumber" Type="Int32" />
-    <NavigationProperty Name="Rent" Relationship="Self.FK_Rent_ToTable" FromRole="Users" ToRole="Rent" />
-    <NavigationProperty Name="Roles" Relationship="Self.FK_Users_ToTable" FromRole="Users" ToRole="Roles" />
+    <NavigationProperty Name="Rent" Relationship="SaSaDBModel.FK_Rent_ToTable" FromRole="Users" ToRole="Rent" />
+    <NavigationProperty Name="Roles" Relationship="SaSaDBModel.FK_Users_ToTable" FromRole="Users" ToRole="Roles" />
   </EntityType>
+  <Association Name="FK_Cars_ToTable">
+    <End Type="SaSaDBModel.Catalog" Role="Catalog" Multiplicity="1" />
+    <End Type="SaSaDBModel.Cars" Role="Cars" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Catalog">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cars">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Cars_ToTable_1">
-    <End Role="Location" Type="Self.Location" Multiplicity="1" />
-    <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+    <End Type="SaSaDBModel.Location" Role="Location" Multiplicity="1" />
+    <End Type="SaSaDBModel.Cars" Role="Cars" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Location">
         <PropertyRef Name="Id" />
@@ -95,8 +142,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Catalog_ToTable">
-    <End Role="Cars" Type="Self.Cars" Multiplicity="1" />
-    <End Role="Catalog" Type="Self.Catalog" Multiplicity="0..1" />
+    <End Type="SaSaDBModel.Cars" Role="Cars" Multiplicity="1" />
+    <End Type="SaSaDBModel.Catalog" Role="Catalog" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Cars">
         <PropertyRef Name="Id" />
@@ -107,8 +154,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Rent_ToTable_2">
-    <End Role="Cars" Type="Self.Cars" Multiplicity="0..1" />
-    <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+    <End Type="SaSaDBModel.Cars" Role="Cars" Multiplicity="0..1" />
+    <End Type="SaSaDBModel.Rent" Role="Rent" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cars">
         <PropertyRef Name="Id" />
@@ -119,8 +166,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Rent_ToTable_1">
-    <End Role="Location" Type="Self.Location" Multiplicity="1" />
-    <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+    <End Type="SaSaDBModel.Location" Role="Location" Multiplicity="1" />
+    <End Type="SaSaDBModel.Rent" Role="Rent" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Location">
         <PropertyRef Name="Id" />
@@ -131,8 +178,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Rent_ToTable">
-    <End Role="Users" Type="Self.Users" Multiplicity="1" />
-    <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+    <End Type="SaSaDBModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="SaSaDBModel.Rent" Role="Rent" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Id" />
@@ -143,8 +190,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Users_ToTable">
-    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
-    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <End Type="SaSaDBModel.Roles" Role="Roles" Multiplicity="0..1" />
+    <End Type="SaSaDBModel.Users" Role="Users" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Roles">
         <PropertyRef Name="RoleId" />
@@ -154,36 +201,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="SaSaDBEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Cars" EntityType="Self.Cars" />
-    <EntitySet Name="Catalog" EntityType="Self.Catalog" />
-    <EntitySet Name="Location" EntityType="Self.Location" />
-    <EntitySet Name="Rent" EntityType="Self.Rent" />
-    <EntitySet Name="Roles" EntityType="Self.Roles" />
-    <EntitySet Name="Users" EntityType="Self.Users" />
-    <AssociationSet Name="FK_Cars_ToTable_1" Association="Self.FK_Cars_ToTable_1">
-      <End Role="Location" EntitySet="Location" />
-      <End Role="Cars" EntitySet="Cars" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Catalog_ToTable" Association="Self.FK_Catalog_ToTable">
-      <End Role="Cars" EntitySet="Cars" />
-      <End Role="Catalog" EntitySet="Catalog" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Rent_ToTable_2" Association="Self.FK_Rent_ToTable_2">
-      <End Role="Cars" EntitySet="Cars" />
-      <End Role="Rent" EntitySet="Rent" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Rent_ToTable_1" Association="Self.FK_Rent_ToTable_1">
-      <End Role="Location" EntitySet="Location" />
-      <End Role="Rent" EntitySet="Rent" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Rent_ToTable" Association="Self.FK_Rent_ToTable">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Rent" EntitySet="Rent" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Users_ToTable" Association="Self.FK_Users_ToTable">
-      <End Role="Roles" EntitySet="Roles" />
-      <End Role="Users" EntitySet="Users" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>
