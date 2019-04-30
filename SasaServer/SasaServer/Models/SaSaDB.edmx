@@ -25,9 +25,9 @@
           <Property Name="model" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="costPerDay" Type="int" Nullable="false" />
           <Property Name="costPerLate" Type="int" Nullable="false" />
-          <Property Name="gearbox" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="gearbox" Type="bit" Nullable="false" />
           <Property Name="PhotoNumber" Type="int" Nullable="false" />
-          <Property Name="availability" Type="nchar" MaxLength="10" />
+          <Property Name="availability" Type="bit" />
         </EntityType>
         <EntityType Name="Location">
           <Key>
@@ -96,18 +96,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Catalog_ToTable">
-          <End Role="Cars" Type="Self.Cars" Multiplicity="1" />
-          <End Role="Catalog" Type="Self.Catalog" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Cars">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Catalog">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Rent_ToTable">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
@@ -171,10 +159,6 @@
             <End Role="Location" EntitySet="Location" />
             <End Role="Cars" EntitySet="Cars" />
           </AssociationSet>
-          <AssociationSet Name="FK_Catalog_ToTable" Association="Self.FK_Catalog_ToTable">
-            <End Role="Cars" EntitySet="Cars" />
-            <End Role="Catalog" EntitySet="Catalog" />
-          </AssociationSet>
           <AssociationSet Name="FK_Rent_ToTable" Association="Self.FK_Rent_ToTable">
             <End Role="Users" EntitySet="Users" />
             <End Role="Rent" EntitySet="Rent" />
@@ -198,22 +182,13 @@
       <Schema Namespace="SaSaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="SaSaDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cars" EntityType="SaSaDBModel.Cars" />
-          <EntitySet Name="Catalog" EntityType="SaSaDBModel.Catalog" />
           <EntitySet Name="Location" EntityType="SaSaDBModel.Location" />
           <EntitySet Name="Rent" EntityType="SaSaDBModel.Rent" />
           <EntitySet Name="Roles" EntityType="SaSaDBModel.Roles" />
           <EntitySet Name="Users" EntityType="SaSaDBModel.Users" />
-          <AssociationSet Name="FK_Cars_ToTable" Association="SaSaDBModel.FK_Cars_ToTable">
-            <End Role="Catalog" EntitySet="Catalog" />
-            <End Role="Cars" EntitySet="Cars" />
-          </AssociationSet>
           <AssociationSet Name="FK_Cars_ToTable_1" Association="SaSaDBModel.FK_Cars_ToTable_1">
             <End Role="Location" EntitySet="Location" />
             <End Role="Cars" EntitySet="Cars" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Catalog_ToTable" Association="SaSaDBModel.FK_Catalog_ToTable">
-            <End Role="Cars" EntitySet="Cars" />
-            <End Role="Catalog" EntitySet="Catalog" />
           </AssociationSet>
           <AssociationSet Name="FK_Rent_ToTable_2" Association="SaSaDBModel.FK_Rent_ToTable_2">
             <End Role="Cars" EntitySet="Cars" />
@@ -231,6 +206,11 @@
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="Catalog" EntityType="SaSaDBModel.Catalog" />
+          <AssociationSet Name="FK_Cars_ToTable" Association="SaSaDBModel.FK_Cars_ToTable">
+            <End Role="Catalog" EntitySet="Catalog" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Cars">
           <Key>
@@ -242,25 +222,9 @@
           <Property Name="isProper" Type="Boolean" Nullable="false" />
           <Property Name="availability" Type="Boolean" Nullable="false" />
           <Property Name="location" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Catalog" Relationship="SaSaDBModel.FK_Cars_ToTable" FromRole="Cars" ToRole="Catalog" />
           <NavigationProperty Name="Location1" Relationship="SaSaDBModel.FK_Cars_ToTable_1" FromRole="Cars" ToRole="Location" />
-          <NavigationProperty Name="Catalog1" Relationship="SaSaDBModel.FK_Catalog_ToTable" FromRole="Cars" ToRole="Catalog" />
           <NavigationProperty Name="Rent" Relationship="SaSaDBModel.FK_Rent_ToTable_2" FromRole="Cars" ToRole="Rent" />
-        </EntityType>
-        <EntityType Name="Catalog">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="manufacturer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="costPerDay" Type="Int32" Nullable="false" />
-          <Property Name="costPerLate" Type="Int32" Nullable="false" />
-          <Property Name="gearbox" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PhotoNumber" Type="Int32" Nullable="false" />
-          <Property Name="availability" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Cars" Relationship="SaSaDBModel.FK_Cars_ToTable" FromRole="Catalog" ToRole="Cars" />
-          <NavigationProperty Name="Cars1" Relationship="SaSaDBModel.FK_Catalog_ToTable" FromRole="Catalog" ToRole="Cars" />
+          <NavigationProperty Name="Catalog" Relationship="SaSaDBModel.FK_Cars_ToTable" FromRole="Cars" ToRole="Catalog" />
         </EntityType>
         <EntityType Name="Location">
           <Key>
@@ -313,18 +277,6 @@
           <NavigationProperty Name="Rent" Relationship="SaSaDBModel.FK_Rent_ToTable" FromRole="Users" ToRole="Rent" />
           <NavigationProperty Name="Roles" Relationship="SaSaDBModel.FK_Users_ToTable" FromRole="Users" ToRole="Roles" />
         </EntityType>
-        <Association Name="FK_Cars_ToTable">
-          <End Type="SaSaDBModel.Catalog" Role="Catalog" Multiplicity="1" />
-          <End Type="SaSaDBModel.Cars" Role="Cars" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Catalog">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Cars">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Cars_ToTable_1">
           <End Type="SaSaDBModel.Location" Role="Location" Multiplicity="1" />
           <End Type="SaSaDBModel.Cars" Role="Cars" Multiplicity="*" />
@@ -334,18 +286,6 @@
             </Principal>
             <Dependent Role="Cars">
               <PropertyRef Name="location" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Catalog_ToTable">
-          <End Type="SaSaDBModel.Cars" Role="Cars" Multiplicity="1" />
-          <End Type="SaSaDBModel.Catalog" Role="Catalog" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Cars">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Catalog">
-              <PropertyRef Name="Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -397,6 +337,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Catalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="manufacturer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="costPerDay" Type="Int32" Nullable="false" />
+          <Property Name="costPerLate" Type="Int32" Nullable="false" />
+          <Property Name="gearbox" Type="Boolean" Nullable="false" />
+          <Property Name="PhotoNumber" Type="Int32" Nullable="false" />
+          <Property Name="availability" Type="Boolean" />
+          <NavigationProperty Name="Cars" Relationship="SaSaDBModel.FK_Cars_ToTable" FromRole="Catalog" ToRole="Cars" />
+        </EntityType>
+        <Association Name="FK_Cars_ToTable">
+          <End Type="SaSaDBModel.Catalog" Role="Catalog" Multiplicity="1" />
+          <End Type="SaSaDBModel.Cars" Role="Cars" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Catalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -411,20 +377,6 @@
                 <ScalarProperty Name="isProper" ColumnName="isProper" />
                 <ScalarProperty Name="km" ColumnName="km" />
                 <ScalarProperty Name="licensePlate" ColumnName="licensePlate" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Catalog">
-            <EntityTypeMapping TypeName="SaSaDBModel.Catalog">
-              <MappingFragment StoreEntitySet="Catalog">
-                <ScalarProperty Name="availability" ColumnName="availability" />
-                <ScalarProperty Name="PhotoNumber" ColumnName="PhotoNumber" />
-                <ScalarProperty Name="gearbox" ColumnName="gearbox" />
-                <ScalarProperty Name="costPerLate" ColumnName="costPerLate" />
-                <ScalarProperty Name="costPerDay" ColumnName="costPerDay" />
-                <ScalarProperty Name="model" ColumnName="model" />
-                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -472,6 +424,20 @@
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Catalog">
+            <EntityTypeMapping TypeName="SaSaDBModel.Catalog">
+              <MappingFragment StoreEntitySet="Catalog">
+                <ScalarProperty Name="availability" ColumnName="availability" />
+                <ScalarProperty Name="PhotoNumber" ColumnName="PhotoNumber" />
+                <ScalarProperty Name="gearbox" ColumnName="gearbox" />
+                <ScalarProperty Name="costPerLate" ColumnName="costPerLate" />
+                <ScalarProperty Name="costPerDay" ColumnName="costPerDay" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -85,3 +85,4 @@ C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\Microso
 C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\Microsoft.AspNet.Identity.Owin.xml
 C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\bin\Microsoft.Owin.Security.Cookies.xml
+C:\לימודים\projects\angular-web-project\SasaServer\SasaServer\obj\Debug\SasaServer.csprojAssemblyReference.cache

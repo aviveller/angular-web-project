@@ -6,18 +6,17 @@
     <edmx:Diagrams>
       <Diagram DiagramId="5f8345ccb9db425890f2cc76cde526c1" Name="Diagram1">
         <EntityTypeShape EntityType="SaSaDBModel.Cars" Width="1.5" PointX="3" PointY="4.875" />
-        <EntityTypeShape EntityType="SaSaDBModel.Catalog" Width="1.5" PointX="5.25" PointY="8.75" />
         <EntityTypeShape EntityType="SaSaDBModel.Location" Width="1.5" PointX="0.75" PointY="5.25" />
         <EntityTypeShape EntityType="SaSaDBModel.Rent" Width="1.5" PointX="5.25" PointY="4.75" />
         <EntityTypeShape EntityType="SaSaDBModel.Roles" Width="1.5" PointX="0.75" PointY="2.625" />
         <EntityTypeShape EntityType="SaSaDBModel.Users" Width="1.5" PointX="3" PointY="0.75" />
-        <AssociationConnector Association="SaSaDBModel.FK_Cars_ToTable" />
         <AssociationConnector Association="SaSaDBModel.FK_Cars_ToTable_1" />
-        <AssociationConnector Association="SaSaDBModel.FK_Catalog_ToTable" />
         <AssociationConnector Association="SaSaDBModel.FK_Rent_ToTable_2" />
         <AssociationConnector Association="SaSaDBModel.FK_Rent_ToTable_1" />
         <AssociationConnector Association="SaSaDBModel.FK_Rent_ToTable" />
         <AssociationConnector Association="SaSaDBModel.FK_Users_ToTable" />
+        <EntityTypeShape EntityType="SaSaDBModel.Catalog" Width="1.5" PointX="5.375" PointY="1" />
+        <AssociationConnector Association="SaSaDBModel.FK_Cars_ToTable" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

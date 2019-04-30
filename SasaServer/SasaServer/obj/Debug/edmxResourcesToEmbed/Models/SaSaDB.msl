@@ -13,20 +13,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Catalog">
-      <EntityTypeMapping TypeName="SaSaDBModel.Catalog">
-        <MappingFragment StoreEntitySet="Catalog">
-          <ScalarProperty Name="availability" ColumnName="availability" />
-          <ScalarProperty Name="PhotoNumber" ColumnName="PhotoNumber" />
-          <ScalarProperty Name="gearbox" ColumnName="gearbox" />
-          <ScalarProperty Name="costPerLate" ColumnName="costPerLate" />
-          <ScalarProperty Name="costPerDay" ColumnName="costPerDay" />
-          <ScalarProperty Name="model" ColumnName="model" />
-          <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Location">
       <EntityTypeMapping TypeName="SaSaDBModel.Location">
         <MappingFragment StoreEntitySet="Location">
@@ -70,6 +56,20 @@
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Catalog">
+      <EntityTypeMapping TypeName="SaSaDBModel.Catalog">
+        <MappingFragment StoreEntitySet="Catalog">
+          <ScalarProperty Name="availability" ColumnName="availability" />
+          <ScalarProperty Name="PhotoNumber" ColumnName="PhotoNumber" />
+          <ScalarProperty Name="gearbox" ColumnName="gearbox" />
+          <ScalarProperty Name="costPerLate" ColumnName="costPerLate" />
+          <ScalarProperty Name="costPerDay" ColumnName="costPerDay" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

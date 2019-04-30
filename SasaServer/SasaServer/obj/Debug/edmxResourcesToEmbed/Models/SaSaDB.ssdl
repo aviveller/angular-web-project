@@ -20,9 +20,9 @@
     <Property Name="model" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="costPerDay" Type="int" Nullable="false" />
     <Property Name="costPerLate" Type="int" Nullable="false" />
-    <Property Name="gearbox" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="gearbox" Type="bit" Nullable="false" />
     <Property Name="PhotoNumber" Type="int" Nullable="false" />
-    <Property Name="availability" Type="nchar" MaxLength="10" />
+    <Property Name="availability" Type="bit" />
   </EntityType>
   <EntityType Name="Location">
     <Key>
@@ -91,18 +91,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Catalog_ToTable">
-    <End Role="Cars" Type="Self.Cars" Multiplicity="1" />
-    <End Role="Catalog" Type="Self.Catalog" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Cars">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Catalog">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Rent_ToTable">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
@@ -165,10 +153,6 @@
     <AssociationSet Name="FK_Cars_ToTable_1" Association="Self.FK_Cars_ToTable_1">
       <End Role="Location" EntitySet="Location" />
       <End Role="Cars" EntitySet="Cars" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Catalog_ToTable" Association="Self.FK_Catalog_ToTable">
-      <End Role="Cars" EntitySet="Cars" />
-      <End Role="Catalog" EntitySet="Catalog" />
     </AssociationSet>
     <AssociationSet Name="FK_Rent_ToTable" Association="Self.FK_Rent_ToTable">
       <End Role="Users" EntitySet="Users" />
