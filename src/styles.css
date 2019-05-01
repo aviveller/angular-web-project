@@ -466,8 +466,17 @@ height: 80%;
   list-style-type: none;
 }
 
-#errorMes{
+/* #errorMes{
 
 
   
+} */
+
+#AboutBackground{
+
+height: 300px;
+width:100%;
+object-fit: cover;
+
+
 }

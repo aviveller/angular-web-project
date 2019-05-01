@@ -1,50 +1,51 @@
 <div class="container">
     <br>
     <br>
-    
- 
+
+
 
 
     <ul>
         <li id="CarsLI" *ngFor="let car of catalog">
-                <hr>
+            <hr>
             <div class="WrapCarResult">
 
-             <div>{{car.Price}}</div>   
-               
+                <!-- <div>{{car.costPerDay}}</div>    -->
+
                 <div class="ImgCarResultWarper">
-                        
-                    <img id="ImgCarResult" src='/src/assets/cars/{{car.photoNumber}}.png' alt="">
-        
+
+                    <img id="ImgCarResult" src='/src/assets/cars/{{car.PhotoNumber}}.png' alt="">
+
                 </div>
-        
+
                 <div class="descriptionResult">
                     <h4>{{car.manufacturer}} {{car.model}}</h4>
-        
+
                     <ul>
                         <li>best car in town</li>
                         <li>can go up to 200 k"m</li>
                         <li>limited bla bla bla bla</li>
                         <li>just in case you miss it</li>
                     </ul>
-        
-        
+
+
                 </div>
-        
+
                 <div>
-                <h4 s>Total Price <span style="color:green">{{TotalPrice}}</span>  NIS </h4>
-                Price Per Day <span style="color:green; font-weight: bold" > {{DayPrice}}</span> NIS 
+                    <!-- <h4 s>Total Price <span style="color:green">{{TotalPrice}}</span> NIS </h4> -->
+                 <h4> Price Per Day <span style="color:green; font-weight: bold"> {{car.costPerDay}}</span> NIS</h4>  
                 </div>
 
                 <div><button type="button" class="btn btn-success">Rent Now</button></div>
-        
-        
-        
-            </div></li>
+
+
+
+            </div>
+        </li>
 
     </ul>
 
 
-   
+
 
 </div>
