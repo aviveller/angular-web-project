@@ -480,3 +480,8 @@ object-fit: cover;
 
 
 }
+
+.card-img-top {
+  width: 70%;
+ 
+}
