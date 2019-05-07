@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 
+
 @Component({
+  
   selector: 'app-cars',
   templateUrl: './cars.component.html',
   styleUrls: ['./cars.component.css']
@@ -10,6 +12,8 @@ export class CarsComponent implements OnInit {
 
 
   //todo connect to server all this veribles
+
+  searchText = ''
   counter = [1, 2, 3]
   RantDays = 12;
   DayPrice = 230;

@@ -485,3 +485,23 @@ object-fit: cover;
   width: 70%;
  
 }
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid #dee2e6;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#WhiteBackground{
+
+  background: white;
+  padding-top: inherit;
+
+}
+
+
+#SearchBox{
+padding-left: initial;
+padding-bottom: 20px;
+margin: auto;
+}

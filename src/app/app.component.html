@@ -16,7 +16,8 @@
         <a class="nav-item nav-link" routerLink="/about" routerLinkActive="active">About</a>
         <a class="nav-item nav-link" routerLink="/cars" routerLinkActive="active">Renatl Cars</a>
         <a class="nav-item nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
-        <a class="nav-item nav-link" *ngIf="auth.isUserAdmin()"  routerLink="/secrets" routerLinkActive="active" >Secrets</a>
+        <a class="nav-item nav-link" routerLink="/user" *ngIf="auth.CustomerLoggedIn()" routerLinkActive="active">Your Account</a>
+        <a class="nav-item nav-link" *ngIf="auth.isUserAdmin()"  routerLink="/secrets" routerLinkActive="active" >Management Panel</a>
 
       </div>
     </div>

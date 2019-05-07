@@ -17,7 +17,9 @@ import { SecretsComponent } from './secrets/secrets.component';
 import { AuthGuard } from './auth.guard';
 import { DatereturnComponent } from './Dates/datereturn.component';
 import { CarsComponent } from './cars/cars.component';
-
+import { SearchPipe } from './SearchPipe';
+import { UserComponent } from './user/user.component';
+import { UserGuard } from './user.auth.guard';
 
 
 
@@ -27,6 +29,7 @@ const appRoutes: Routes = [
   { path: 'about', component: ABOUTComponent },
   { path: 'contact', component: CONTACTComponent },
   { path: 'secrets', component: SecretsComponent, canActivate: [AuthGuard]},
+  { path: 'user', component: UserComponent,canActivate:[UserGuard] },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cars', component: CarsComponent },
@@ -45,13 +48,12 @@ const appRoutes: Routes = [
     LogoutComponent,
     SecretsComponent,
     DatereturnComponent,
-    CarsComponent
-    
+    CarsComponent,
+    SearchPipe,
+    UserComponent
   
-   
-   
-   
   ],
+  
   imports: [
     RouterModule.forRoot(
       appRoutes,
@@ -64,8 +66,10 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
+    
    
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

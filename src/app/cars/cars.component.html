@@ -1,23 +1,69 @@
-<div class="container">
+<div class="jumbotron" id="WhiteBackground">
     <br>
     <br>
 
 
 
+
+    <div class="input-group col-md-4" id="SearchBox">
+        <input [(ngModel)]="searchText" placeholder="Search For Anything..." class="form-control py-2" type="search" value="search"
+            id="example-search-input">
+        <span class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
+    </div>
+
+    
+    <table class="table table-bordered">
+
+
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">MANUFACTURER</th>
+                <th scope="col">MODEL</th>
+                <th scope="col">COST PER DAY</th>
+                <th scope="col">GEAR BOX</th>
+                <th scope="col">IMAGE</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr
+                *ngFor="let car of catalog | SearchInTable: {manufacturer: searchText, model:searchText,  gearbox: searchText}; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{car.manufacturer}}</td>
+                <td>{{car.model}}</td>
+                <td>{{car.costPerDay}}</td>
+                <td>{{car.gearbox}}</td>
+                <td><img id="ImgCarResult" src='/src/assets/cars/{{car.PhotoNumber}}.png' alt=""></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+
+
+
+    <!-- 
 
     <ul>
         <li id="CarsLI" *ngFor="let car of catalog">
             <hr>
-            <div class="WrapCarResult">
+            <div class="WrapCarResult"> -->
 
-                <!-- <div>{{car.costPerDay}}</div>    -->
-
+    <!-- <div>{{car.costPerDay}}</div>    -->
+    <!-- 
                 <div class="ImgCarResultWarper">
 
                     <img id="ImgCarResult" src='/src/assets/cars/{{car.PhotoNumber}}.png' alt="">
 
-                </div>
-
+                </div> -->
+    <!-- 
                 <div class="descriptionResult">
                     <h4>{{car.manufacturer}} {{car.model}}</h4>
 
@@ -29,13 +75,13 @@
                     </ul>
 
 
-                </div>
+                </div> -->
 
-                <div>
-                    <!-- <h4 s>Total Price <span style="color:green">{{TotalPrice}}</span> NIS </h4> -->
+    <!-- <div>
+                     <h4 s>Total Price <span style="color:green">{{TotalPrice}}</span> NIS </h4> 
                  <h4> Price Per Day <span style="color:green; font-weight: bold"> {{car.costPerDay}}</span> NIS</h4>  
-                </div>
-
+                </div> -->
+    <!-- 
                 <div><button type="button" class="btn btn-success">Rent Now</button></div>
 
 
@@ -43,7 +89,7 @@
             </div>
         </li>
 
-    </ul>
+    </ul> -->
 
 
 

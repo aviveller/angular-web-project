@@ -19,7 +19,7 @@ namespace SasaServer.Models
         public string model { get; set; }
         public int costPerDay { get; set; }
         public int costPerLate { get; set; }
-        public bool gearbox { get; set; }
+        public string gearbox { get; set; }
         public int PhotoNumber { get; set; }
         public Nullable<bool> availability { get; set; }
     

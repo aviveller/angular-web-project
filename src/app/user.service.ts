@@ -85,6 +85,10 @@ export class UserService {
   public isUserAdmin() {
     return localStorage.getItem('role') == "1";
   }
+  public CustomerLoggedIn() {
+    return localStorage.getItem('role') == "3";
+  }
+  
 
 
 }

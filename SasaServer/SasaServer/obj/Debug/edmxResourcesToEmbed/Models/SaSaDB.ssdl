@@ -20,7 +20,7 @@
     <Property Name="model" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="costPerDay" Type="int" Nullable="false" />
     <Property Name="costPerLate" Type="int" Nullable="false" />
-    <Property Name="gearbox" Type="bit" Nullable="false" />
+    <Property Name="gearbox" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="PhotoNumber" Type="int" Nullable="false" />
     <Property Name="availability" Type="bit" />
   </EntityType>
