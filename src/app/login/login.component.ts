@@ -1,6 +1,6 @@
 import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -11,6 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class LoginComponent implements OnInit {
 
   isLoginError = false;
+  UserName: string;
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -39,12 +40,29 @@ export class LoginComponent implements OnInit {
       (data: any) => {
         localStorage.setItem('userToken', data.access_token);
         localStorage.setItem('role', data.role);
+        localStorage.setItem('UserName', data.userName);
         console.dir(data);
-        this.router.navigate(['/secrets']);
+        this.UserName = localStorage.getItem('UserName');
+        console.log(userName);
+        if (localStorage.getItem('role') == "1") {
+          this.router.navigate(['/secrets']);
+        }
+
+        if (localStorage.getItem('role') == "3") {
+          this.router.navigate(['/user']);
+        }
+
+
       },
+      
+
       (err: HttpErrorResponse) => {
         this.isLoginError = true;
-       }
+      }
+
     );
   }
+  
 }
+
+

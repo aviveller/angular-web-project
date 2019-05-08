@@ -62,6 +62,7 @@ export class HOMEComponent implements OnInit {
 
   ngOnInit() {
 
+    
     this.userService.getLocations().subscribe((Data: any) => {
       this.locations = Data;
       console.log(Data);
